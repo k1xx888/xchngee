@@ -40,7 +40,6 @@ const CurrencySelector: React.FC<CurrencySelectorProps> = ({ label, value, onCha
         className="flex items-center justify-between w-full px-5 py-4 rounded-2xl border-2 border-slate-100 hover:border-indigo-200 focus:border-indigo-500 transition-all text-left bg-white shadow-sm"
       >
         <div className="flex items-center gap-4">
-          <span className="text-2xl drop-shadow-sm">{selectedCurrency.flag}</span>
           <div className="flex flex-col">
             <span className="font-bold text-slate-900 leading-tight">{selectedCurrency.code}</span>
             <span className="text-[10px] text-slate-400 font-medium uppercase">{selectedCurrency.name}</span>
@@ -76,7 +75,6 @@ const CurrencySelector: React.FC<CurrencySelectorProps> = ({ label, value, onCha
                 }}
               >
                 <div className="flex items-center gap-4">
-                  <span className="text-2xl">{currency.flag}</span>
                   <div className="flex flex-col">
                     <span className={`font-bold text-sm ${value === currency.code ? 'text-indigo-600' : 'text-slate-700'}`}>{currency.code}</span>
                     <span className="text-[10px] text-slate-400 font-medium">{currency.name}</span>

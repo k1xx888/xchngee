@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { POPULAR_CURRENCIES } from '../constants';
 
 interface DashboardRate {
   from: string;
@@ -14,8 +13,6 @@ interface CurrencyDashboardProps {
 }
 
 const CurrencyDashboard: React.FC<CurrencyDashboardProps> = ({ rates, loading }) => {
-  const getFlag = (code: string) => POPULAR_CURRENCIES.find(c => c.code === code)?.flag || '🏳️';
-
   if (loading) {
     return (
       <section className="mb-16">
@@ -49,10 +46,6 @@ const CurrencyDashboard: React.FC<CurrencyDashboardProps> = ({ rates, loading })
             <div key={`${item.from}-${item.to}`} className="group bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               <div className="flex justify-between items-start mb-4">
                 <div className="flex items-center gap-3">
-                  <div className="flex -space-x-2">
-                    <span className="text-xl drop-shadow-sm z-10">{getFlag(item.from)}</span>
-                    <span className="text-xl drop-shadow-sm">{getFlag(item.to)}</span>
-                  </div>
                   <div className="flex flex-col">
                     <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none">{item.from} / {item.to}</span>
                     <span className="text-xs font-bold text-slate-700">FX Spot</span>

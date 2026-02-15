@@ -105,8 +105,6 @@ const App: React.FC = () => {
     }).format(value);
   };
 
-  const getFlag = (code: string) => POPULAR_CURRENCIES.find(c => c.code === code)?.flag || '🏳️';
-
   const result = rate ? amount * rate : 0;
 
   return (
@@ -184,7 +182,7 @@ const App: React.FC = () => {
                 </div>
               </div>
 
-              {/* Enhanced Conversion Display with Flags */}
+              {/* Enhanced Conversion Display */}
               <div className="mt-16 pt-12 border-t border-slate-50">
                 {loading ? (
                   <div className="flex flex-col gap-6 animate-pulse">
@@ -205,11 +203,9 @@ const App: React.FC = () => {
                     <div className="flex flex-col gap-2">
                       <div className="flex items-center gap-3 text-slate-400 font-bold text-sm uppercase tracking-widest mb-1">
                         <span>{amount.toLocaleString()}</span>
-                        <span className="text-xl">{getFlag(fromCurrency)}</span>
                         <span>{fromCurrency} equals</span>
                       </div>
                       <div className="flex flex-wrap items-center gap-4">
-                        <span className="text-3xl md:text-4xl">{getFlag(toCurrency)}</span>
                         <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 tracking-tighter leading-none break-all">
                           {formatCurrency(result, toCurrency)}
                         </h2>
